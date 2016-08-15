@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>GSI Tiles on Leaflet</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
+<link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+<script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="demtile.js"></script>
 <style>
   body {padding: 0; margin: 0}
   html, body, #map {height: 100%; width: 100%;}
@@ -17,9 +18,17 @@
 <script>
 var map = L.map('map');
 
-L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
   attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
 }).addTo(map);
+
+var canvasTiles = L.tileLayer.canvas({
+	maxZoom: 14,
+	opacity: 0.85
+});
+canvasTiles.drawTile = drawDemTile;
+
+canvasTiles.addTo(map);
 
 map.setView([35.3622222, 138.7313889], 5);
 </script>
