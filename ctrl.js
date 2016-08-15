@@ -6,7 +6,10 @@ function openSetting()
 
 function applySetting()
 {
-
+	colorMapSetting = $("input[name=colormap]:checked").val();
+	
+	map.removeLayer(canvasTiles);
+	map.addLayer(canvasTiles);
 }
 
 function closeSetting()
