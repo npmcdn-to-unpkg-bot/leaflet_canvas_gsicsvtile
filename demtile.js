@@ -1,12 +1,4 @@
 /**
- * Function to get color from real value
- */
-function getColor(value){
-	var intVal = parseInt(value);
-	return 'rgb(' + String(intVal) + ',' + String(intVal) + ',' + String(intVal) + ')';
-}
-
-/**
  * Parse delimiter separated data
  */
 function parseSV(str, delimiter){
@@ -55,7 +47,7 @@ function drawDemTile(canvas, tilePoint, zoom)
 					if (v == 'e') {continue;}
 					
 					var elev = parseFloat(v);
-					ctx.fillStyle = getColor(elev);
+					ctx.fillStyle = colorMap(elev);
 					ctx.fillRect(i, j, 1, 1);
 				}
 			}
