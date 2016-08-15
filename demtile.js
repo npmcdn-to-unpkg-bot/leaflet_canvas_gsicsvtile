@@ -1,3 +1,10 @@
+/**
+ * Function to get color from real value
+ */
+function getColor(value){
+	var intVal = parseInt(value);
+	return 'rgb(' + String(intVal) + ',' + String(intVal) + ',' + String(intVal) + ')';
+}
 function drawDemTile(canvas, tilePoint, zoom)
 {
 	var ctx = canvas.getContext('2d');
