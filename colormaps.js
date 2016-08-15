@@ -23,9 +23,9 @@ function stdColorMap(value)
 		return 'rgb(' + String(upper[1]) + ',' + String(upper[2]) + ',' + String(upper[3]) + ')';
 	}
 	var rate = (value - lower[0]) / (upper[0] - lower[0]);
-	var r = parseInt(lower[1] * rate + upper[1] * (1 - rate));
-	var g = parseInt(lower[2] * rate + upper[2] * (1 - rate));
-	var b = parseInt(lower[3] * rate + upper[3] * (1 - rate));
+	var r = parseInt(lower[1] * (1 - rate) + upper[1] * rate);
+	var g = parseInt(lower[2] * (1 - rate) + upper[2] * rate);
+	var b = parseInt(lower[3] * (1 - rate) + upper[3] * rate);
 	return 'rgb(' + String(r) + ',' + String(g) + ',' + String(b) + ')';
 }
 
